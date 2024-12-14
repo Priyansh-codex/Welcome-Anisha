@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome, Anisha Choudhary!</title>
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(to bottom, #ffecf0, #fbc2eb);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Main Title */
+        h1 {
+            font-size: 4.5em;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 50px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), 0 0 30px #ff9a9e;
+            animation: rainbowText 3s infinite alternate;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Paragraph Styling */
+        p {
+            font-size: 2em;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px #fff;
+            animation: fadeIn 3s;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Rainbow */
+        .rainbow {
+            position: absolute;
+            width: 500px;
+            height: 250px;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            border-radius: 250px 250px 0 0;
+            z-index: 1; /* Ensures it goes behind text */
+            opacity: 0.8;
+        }
+
+        /* Clouds */
+        .cloud {
+            position: absolute;
+            background: white;
+            width: 100px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: floatClouds 10s infinite linear;
+            z-index: 1;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .cloud::before {
+            top: -30px;
+            left: 10px;
+        }
+
+        .cloud::after {
+            top: -20px;
+            left: 60px;
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: pink;
+            transform: rotate(-45deg);
+            animation: floatHearts 4s infinite ease-in-out;
+            z-index: 2;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: pink;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: 0;
+            left: 25px;
+        }
+
+        .heart::after {
+            top: -25px;
+            left: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes floatClouds {
+            0% { left: -20%; }
+            100% { left: 120%; }
+        }
+
+        @keyframes rainbowText {
+            0% { color: #ff9a9e; }
+            50% { color: #fad0c4; }
+            100% { color: #fff; }
+        }
+
+        @keyframes floatHearts {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-200px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Rainbow -->
+    <div class="rainbow"></div>
+
+    <!-- Clouds -->
+    <div class="cloud" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+    <div class="cloud" style="top: 20%; left: 70%; animation-delay: 2s;"></div>
+    <div class="cloud" style="top: 40%; left: 40%; animation-delay: 4s;"></div>
+
+    <!-- Main Content -->
+    <h1>Welcome, Anisha Choudhary!</h1>
+    <p>Dear Anisha,</p>
+    <p>You are the brightest star in our family. We are so blessed to have you.</p>
+    <p>As your mama (Priyansh), I will always love, guide, and protect you. Watching you grow will be my life's greatest joy.</p>
+    <p>With love and hugs,<br>Your Mama ❤️</p>
+
+    <!-- Floating Hearts -->
+    <div class="heart" style="top: 80%; left: 20%; animation-delay: 0s;"></div>
+    <div class="heart" style="top: 70%; left: 60%; animation-delay: 1s;"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p style="text-align: center; font-size: 2em; color: white; font-weight: bold;">Welcome to a world full of love and magic!</p>
+    </footer>
+
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-lullaby.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- JavaScript for Click Hearts -->
+    <script>
+        document.body.addEventListener('click', (e) => {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = e.pageX + 'px';
+            heart.style.top = e.pageY + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        });
+    </script>
+</body>
+</html>
